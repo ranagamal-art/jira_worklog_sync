@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Worklogs — AVSTE</title>
+    <meta
+      name="description"
+      content="Daily Jira worklog dashboard synced from the AVSTE project."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="badge">Jira Worklog Sync</div>
+        <h1>Daily Worklogs</h1>
+        <p class="subtitle">
+          Team hours logged in Jira for the AVSTE project, updated after each sync run.
+        </p>
+        <div class="meta">
+          <span>Date: <strong id="worklog-date">—</strong></span>
+          <span>Last synced: <strong id="synced-at">—</strong></span>
+          <span>Timezone: <strong id="timezone">—</strong></span>
+        </div>
+      </header>
+
+      <section class="stats" aria-label="Summary statistics">
+        <div class="stat-card">
+          <div class="label">Total hours</div>
+          <div class="value" id="stat-total">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Members logged</div>
+          <div class="value" id="stat-logged">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Avg per member</div>
+          <div class="value" id="stat-avg">—</div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Worklog table">
+        <div class="panel-header">
+          <h2>Member breakdown</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-sort="member_name">Member</th>
+                <th data-sort="hours_logged">Hours</th>
+                <th data-sort="worklog_count">Worklogs</th>
+                <th>Issues</th>
+              </tr>
+            </thead>
+            <tbody id="worklog-body">
+              <tr>
+                <td colspan="4" class="empty-state">Loading…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          Data synced via
+          <a href="https://github.com/ranagamal-art/jira_worklog_sync">jira_worklog_sync</a>
+          · Run the
+          <a href="https://github.com/ranagamal-art/jira_worklog_sync/actions/workflows/sync-daily-worklogs.yml">Sync Daily Worklogs</a>
+          workflow to update
+        </p>
+      </footer>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
