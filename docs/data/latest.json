@@ -1,77 +1,77 @@
 {
-  "synced_at": "2026-07-06T19:20:46.371973+00:00",
-  "date": "2026-07-06",
+  "synced_at": "2026-07-06T19:23:14.488320+00:00",
+  "date": "2026-05-08",
   "timezone": "Africa/Cairo",
   "members": [
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Ahmed Samir (C)",
       "hours_logged": 7.0,
       "worklog_count": 2,
-      "issue_keys": "AVSTE-1498, AVSTE-1499"
+      "issue_keys": "AVSTE-1082, AVSTE-1238"
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Mahmoud Essam (C)",
       "hours_logged": 0.0,
       "worklog_count": 0,
       "issue_keys": ""
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Mohamed Ayman (C)",
       "hours_logged": 0.0,
       "worklog_count": 0,
       "issue_keys": ""
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Mohamed Khaled (C) 1",
-      "hours_logged": 7.0,
-      "worklog_count": 2,
-      "issue_keys": "AVSTE-1494, AVSTE-1499"
+      "hours_logged": 0.0,
+      "worklog_count": 0,
+      "issue_keys": ""
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Mohamed Khaled (C) 2",
       "hours_logged": 0.0,
       "worklog_count": 0,
       "issue_keys": ""
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Osama Mahmoud (C)",
       "hours_logged": 0.0,
       "worklog_count": 0,
       "issue_keys": ""
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Rana Gamal (C)",
-      "hours_logged": 7.0,
-      "worklog_count": 1,
-      "issue_keys": "AVSTE-1487"
+      "hours_logged": 0.0,
+      "worklog_count": 0,
+      "issue_keys": ""
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Rawan Mohareb (C)",
-      "hours_logged": 7.0,
-      "worklog_count": 2,
-      "issue_keys": "AVSTE-1498, AVSTE-1499"
+      "hours_logged": 0.0,
+      "worklog_count": 0,
+      "issue_keys": ""
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Shaimaa Mohamed (C)",
       "hours_logged": 7.0,
-      "worklog_count": 3,
-      "issue_keys": "AVSTE-1493, AVSTE-1498, AVSTE-1499"
+      "worklog_count": 4,
+      "issue_keys": "AVSTE-1133, AVSTE-1169, AVSTE-1267, AVSTE-1268"
     },
     {
-      "date": "2026-07-06",
+      "date": "2026-05-08",
       "member_name": "Yousef haitham (C)",
-      "hours_logged": 7.0,
-      "worklog_count": 2,
-      "issue_keys": "AVSTE-1498, AVSTE-1499"
+      "hours_logged": 0.0,
+      "worklog_count": 0,
+      "issue_keys": ""
     }
   ]
 }
