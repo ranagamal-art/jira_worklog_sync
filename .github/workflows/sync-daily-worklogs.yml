@@ -1,0 +1,64 @@
+name: Sync Daily Worklogs
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Worklog date (YYYY-MM-DD). Leave empty for today."
+        required: false
+        type: string
+
+concurrency:
+  group: sync-daily-worklogs
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: JiraDailyWorklogs
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure Google service account
+        if: ${{ secrets.GOOGLE_SHEET_ID != '' }}
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p credentials
+          printf '%s' "$GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT" > credentials/service-account.json
+
+      - name: Sync worklogs from Jira
+        env:
+          JIRA_BASE_URL: https://gm-sdv.atlassian.net
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          OUTPUT_CSV: ./worklogs.csv
+          TIMEZONE: Africa/Cairo
+          GOOGLE_SERVICE_ACCOUNT_JSON: ./credentials/service-account.json
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_WORKSHEET_NAME: daily_worklogs
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            python sync_daily_worklogs.py --date "${{ inputs.date }}"
+          else
+            python sync_daily_worklogs.py
+          fi
+
+      - name: Upload CSV artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: worklogs-${{ github.run_id }}
+          path: JiraDailyWorklogs/worklogs.csv
+          if-no-files-found: error
