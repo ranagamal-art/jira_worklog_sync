@@ -32,12 +32,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Configure Google service account
-        if: ${{ secrets.GOOGLE_SHEET_ID != '' }}
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
         run: |
-          mkdir -p credentials
-          printf '%s' "$GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT" > credentials/service-account.json
+          if [ -n "$GOOGLE_SHEET_ID" ]; then
+            mkdir -p credentials
+            printf '%s' "$GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT" > credentials/service-account.json
+          fi
 
       - name: Sync worklogs from Jira
         env:
